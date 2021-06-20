@@ -3,16 +3,9 @@ package org.aviran.cookiebar2;
 import android.animation.Animator;
 import android.content.Context;
 import android.graphics.Color;
-import androidx.annotation.AttrRes;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-
 import android.os.Handler;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -24,6 +17,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.AttrRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+
 import org.aviran.cookiebar2.CookieBarDismissListener.DismissType;
 
 final class Cookie extends LinearLayout implements View.OnTouchListener {
@@ -166,6 +166,9 @@ final class Cookie extends LinearLayout implements View.OnTouchListener {
                 titleTextView.setTextColor(ContextCompat.getColor(getContext(), params.titleColor));
             }
             setDefaultTextSize(titleTextView, R.attr.cookieTitleSize);
+            if (params.titleSize > 0) {
+                titleTextView.setTextSize(params.titleSize);
+            }
         }
 
         if (messageTextView != null && !TextUtils.isEmpty(params.message)) {
@@ -175,6 +178,9 @@ final class Cookie extends LinearLayout implements View.OnTouchListener {
                 messageTextView.setTextColor(ContextCompat.getColor(getContext(), params.messageColor));
             }
             setDefaultTextSize(messageTextView, R.attr.cookieMessageSize);
+            if (params.messageSize > 0) {
+                messageTextView.setTextSize(params.messageSize);
+            }
         }
 
         if (actionButton != null && !TextUtils.isEmpty(params.action) && actionClickListener != null) {

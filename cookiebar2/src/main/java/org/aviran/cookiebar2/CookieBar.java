@@ -3,15 +3,16 @@ package org.aviran.cookiebar2;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.app.Activity;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+
 import androidx.annotation.AnimRes;
 import androidx.annotation.AnimatorRes;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.StringRes;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
 
 /**
  * CookieBar is a lightweight library for showing a brief message at the top or bottom of the
@@ -160,6 +161,16 @@ public class CookieBar {
             return this;
         }
 
+        public Builder setTitleSize(int size) {
+            params.titleSize = size;
+            return this;
+        }
+
+        public Builder setMessageSize(int size) {
+            params.messageSize = size;
+            return this;
+        }
+
         public Builder setMessage(@StringRes int resId) {
             params.message = context.getString(resId);
             return this;
@@ -295,6 +306,8 @@ public class CookieBar {
         public int backgroundColor;
         public int titleColor;
         public int messageColor;
+        public int messageSize;
+        public int titleSize;
         public int actionColor;
         public long duration = 2000;
         public int cookiePosition = Gravity.TOP;
