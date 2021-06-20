@@ -3,6 +3,7 @@ package org.aviran.cookiebar2;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -171,6 +172,14 @@ public class CookieBar {
             return this;
         }
 
+        public Builder setMessageTypeface(Typeface font) {
+            params.messageFont = font;
+            return this;
+        }public Builder setTitleTypeface(Typeface font) {
+            params.titleFont = font;
+            return this;
+        }
+
         public Builder setMessage(@StringRes int resId) {
             params.message = context.getString(resId);
             return this;
@@ -305,6 +314,8 @@ public class CookieBar {
         public int iconResId;
         public int backgroundColor;
         public int titleColor;
+        public Typeface titleFont;
+        public Typeface messageFont;
         public int messageColor;
         public int messageSize;
         public int titleSize;

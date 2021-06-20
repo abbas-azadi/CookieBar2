@@ -169,6 +169,10 @@ final class Cookie extends LinearLayout implements View.OnTouchListener {
             if (params.titleSize > 0) {
                 titleTextView.setTextSize(params.titleSize);
             }
+
+            if (params.titleFont !=null) {
+                titleTextView.setTypeface(params.titleFont);
+            }
         }
 
         if (messageTextView != null && !TextUtils.isEmpty(params.message)) {
@@ -180,6 +184,10 @@ final class Cookie extends LinearLayout implements View.OnTouchListener {
             setDefaultTextSize(messageTextView, R.attr.cookieMessageSize);
             if (params.messageSize > 0) {
                 messageTextView.setTextSize(params.messageSize);
+            }
+
+            if (params.messageFont !=null) {
+                messageTextView.setTypeface(params.messageFont);
             }
         }
 
